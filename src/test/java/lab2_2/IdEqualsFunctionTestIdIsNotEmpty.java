@@ -30,6 +30,11 @@ Id id = Id.generate();
 		Assert.assertThat(id.equals(obj), is(false));
 	}
 	
+	@Test
+	public void ObjectIsNotIdType() {
+		Object obj = "test";
+		Assert.assertThat(id.equals(obj), is(false));
+	}
 	
 
 }
