@@ -55,7 +55,7 @@ public class Id implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Id other = (Id) obj;
-		if (id == null) {
+		if (id == null) {  
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
