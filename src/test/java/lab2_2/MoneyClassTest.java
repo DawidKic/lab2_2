@@ -2,6 +2,9 @@ package lab2_2;
 
 import org.junit.Test;
 import static org.junit.Assert.assertThat;
+
+import java.math.BigDecimal;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
@@ -36,6 +39,22 @@ public class MoneyClassTest {
 		String expected = Integer.toString(Integer.MIN_VALUE)+",00 EUR";
 		assertThat(money.toString(), is(equalTo(expected)));
 	}
+	
+	@Test
+	public void moneyMaxDoubleValue() {
+		Money money = new Money(Double.MAX_VALUE);
+		String expected = new BigDecimal(Double.MAX_VALUE).toPlainString()+",00 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));
+	}
+	
+	@Test
+	public void moneyMinDoubleValue() {
+		Money money = new Money(-Double.MAX_VALUE);
+		String expected = new BigDecimal(-Double.MAX_VALUE).toPlainString()+",00 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));
+	}
+	
+	
 	
 	
 
