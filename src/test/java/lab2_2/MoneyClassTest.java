@@ -98,6 +98,22 @@ public class MoneyClassTest {
 		money.add(money2);
 	}
 	
+	@Test
+	public void moneySubtractFunctionSameCurrency() {
+		Money money = new Money(10);
+		Money money2 = new Money(5);
+		String expected = "5,00 EUR";
+		Money sum = money.subtract(money2);
+		assertThat(sum.toString(), is(equalTo(expected)));
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void moneySubtractFunctionDifferentCurrency() {
+		Money money = new Money(10, "PLN");
+		Money money2 = new Money(5);
+		money.subtract(money2);
+	}
+	
 	
 
 }
