@@ -22,5 +22,21 @@ public class MoneyClassTest {
 		String expected = "10,00 z³";
 		assertThat(money.toString(), is(equalTo(expected)));
 	}
+	
+	@Test
+	public void moneyMaxIntegerValue() {
+		Money money = new Money(Integer.MAX_VALUE);
+		String expected = Integer.toString(Integer.MAX_VALUE)+",00 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));
+	}
+	
+	@Test
+	public void moneyMinIntegerValue() {
+		Money money = new Money(Integer.MIN_VALUE);
+		String expected = Integer.toString(Integer.MIN_VALUE)+",00 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));
+	}
+	
+	
 
 }
