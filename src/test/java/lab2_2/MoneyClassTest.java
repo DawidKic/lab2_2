@@ -172,6 +172,27 @@ public class MoneyClassTest {
 		assertThat(money.greaterThan(money2), is(false));
 	}
 	
+	@Test
+	public void moneyLessThanFunctionTrue() {
+		Money money = new Money(10);
+		Money money2 = new Money(20);
+		assertThat(money.lessThan(money2), is(true));
+	}
+	
+	@Test
+	public void moneyLessThanFunctionFalse() {
+		Money money = new Money(30);
+		Money money2 = new Money(20);
+		assertThat(money.lessThan(money2), is(false));
+	}
+	
+	@Test
+	public void moneyLessThanFunctionEqual() {
+		Money money = new Money(10);
+		Money money2 = new Money(10);
+		assertThat(money.lessThan(money2), is(false));
+	}
+	
 	
 
 }
