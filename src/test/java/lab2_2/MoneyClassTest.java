@@ -13,9 +13,14 @@ public class MoneyClassTest {
 	public void moneyDefaultCurrency() {
 		Money money = new Money(10);
 		String expected = "10,00 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));	
+	}
+	
+	@Test
+	public void moneyCustomCurrency() {
+		Money money = new Money(10, "PLN");
+		String expected = "10,00 z³";
 		assertThat(money.toString(), is(equalTo(expected)));
-		
-		
 	}
 
 }
