@@ -82,7 +82,21 @@ public class MoneyClassTest {
 		assertThat(money.multiplyBy(-Double.MAX_VALUE).toString(), is(equalTo(expected)));
 	}
 	
+	@Test
+	public void moneyAddFunctionSameCurrency() {
+		Money money = new Money(10);
+		Money money2 = new Money(10);
+		String expected = "20,00 EUR";
+		Money sum = money.add(money2);
+		assertThat(sum.toString(), is(equalTo(expected)));
+	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void moneyAddFunctionDifferentCurrency() {
+		Money money = new Money(10, "PLN");
+		Money money2 = new Money(10);
+		money.add(money2);
+	}
 	
 	
 
