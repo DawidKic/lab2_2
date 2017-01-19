@@ -130,5 +130,26 @@ public class MoneyClassTest {
 		assertThat(money.multiplyBy(0.5).toString(), is(equalTo(expected)));
 	}
 	
+	@Test 
+	public void moneyFloatingPoint() {
+		Money money = new Money(0.1);
+		String expected = "0,10 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));	
+	}
+	
+	@Test 
+	public void moneyRoundingUp() {
+		Money money = new Money(0.195);
+		String expected = "0,20 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));	
+	}
+	
+	@Test 
+	public void moneyRoundingDown() {
+		Money money = new Money(0.194);
+		String expected = "0,19 EUR";
+		assertThat(money.toString(), is(equalTo(expected)));	
+	}
+	
 
 }
