@@ -114,6 +114,21 @@ public class MoneyClassTest {
 		money.subtract(money2);
 	}
 	
+	@Test
+	public void moneySubtractFunctionSubtractMore() {
+		Money money = new Money(10);
+		Money money2 = new Money(20);
+		String expected = "-10,00 EUR";
+		Money sum = money.subtract(money2);
+		assertThat(sum.toString(), is(equalTo(expected)));
+	}
+	
+	@Test
+	public void moneyMultiplyByDouble() {
+		Money money = new Money(10);
+		String expected = "5,00 EUR";
+		assertThat(money.multiplyBy(0.5).toString(), is(equalTo(expected)));
+	}
 	
 
 }
