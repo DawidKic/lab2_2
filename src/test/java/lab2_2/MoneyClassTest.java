@@ -193,6 +193,27 @@ public class MoneyClassTest {
 		assertThat(money.lessThan(money2), is(false));
 	}
 	
+	@Test
+	public void moneyLessOrEqualsFunctionTrue() {
+		Money money = new Money(10);
+		Money money2 = new Money(20);
+		assertThat(money.lessOrEquals(money2), is(true));
+	}
+	
+	@Test
+	public void moneyLessOrEqualsFunctionFalse() {
+		Money money = new Money(30);
+		Money money2 = new Money(20);
+		assertThat(money.lessOrEquals(money2), is(false));
+	}
+	
+	@Test
+	public void moneyLessOrEqualsFunctionEqual() {
+		Money money = new Money(10);
+		Money money2 = new Money(10);
+		assertThat(money.lessOrEquals(money2), is(true));
+	}
+	
 	
 
 }
